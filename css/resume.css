@@ -64,6 +64,10 @@ h2 {
   text-transform: uppercase;
 }
 
+.red-border {
+  border: red;
+}
+
 @media (min-width: 992px) {
   #sideNav {
     text-align: center;

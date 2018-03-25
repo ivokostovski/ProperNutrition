@@ -113,60 +113,174 @@
       </div>
     </section>
 
+    <!-- BMI CALCULATOR -->
     <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
       <div class="my-auto">
         <h2 class="mb-5">BMI Calculator</h2>
 
         <div class="resume-item d-flex flex-column flex-md-row mb-5">
           <div class="resume-content col-6">
-            <div class="text-muted mb-2">(Body Mass Index) is a measurement of body fat based on height and weight that applies to both men and women
-              between the ages of 18 and 65 years. BMI can be used to indicate if you are overweight, obese, underweight
-              or normal. A healthy BMI score is between 20 and 25. A score below 20 indicates that you may be underweight;
-              a value above 25 indicates that you may be overweight.
+            <div class="text-muted mb-2">The Body Mass Index (BMI) Calculator can be used to calculate BMI value and corresponding weight status while
+              taking age into consideration. Use the "Metric" tab for the International System of Units or the "Imperial"
+              tab to convert units into US units.
             </div>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-secondary active">
-                <input type="radio" name="options" id="option1" autocomplete="off" checked> Metric
-              </label>
-              <label class="btn btn-secondary">
-                <input type="radio" name="options" id="option2" autocomplete="off"> Imperial
-              </label>
-            </div>
-            <div class="input-group mt-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="">Height</span>
-              </div>
-              <input type="number" class="form-control" required>
-              <div class="input-group-append">
-                <span class="input-group-text">cm</span>
+              <div class="btn-group btn-group-toggle mt-2" data-toggle="buttons">
+                <label class="btn btn-secondary active">
+                  <input type="radio" name="options" id="bmi-btn-metric" autocomplete="off" checked> Metric
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="options" id="bmi-btn-imperial" autocomplete="off"> Imperial
+                </label>
               </div>
             </div>
-            <div class="input-group mt-2">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="">Weight</span>
+
+            <!-- BMI METRIC -->
+            <form id="bmi-metric">
+              <div class="input-group mt-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Age</span>
+                </div>
+                <input type="number" class="form-control" id="bmi-metric-age" required>
               </div>
-              <input type="number" class="form-control" required>
-              <div class="input-group-append">
-                <span class="input-group-text">kg</span>
+              <div class="btn-group btn-group-toggle mt-2" data-toggle="buttons">
+                <label class="btn btn-outline-success btn-sm active">
+                  <input type="radio" name="options" id="bmi-metric-male" autocomplete="off" checked> Male
+                </label>
+                <label class="btn btn-outline-success btn-sm">
+                  <input type="radio" name="options" id="bmi-metric-female" autocomplete="off"> Female
+                </label>
               </div>
-              <div class="container-fluid mt-2 text-right">
-                <button class="btn btn-success">Calculate</button>
+              <div class="input-group mt-2">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Height</span>
+                </div>
+                <input type="number" class="form-control" id="bmi-metric-height" required>
+                <div class="input-group-append">
+                  <span class="input-group-text">cm</span>
+                </div>
               </div>
-            </div>
-            <div class="input-group mt-2">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-default">BMI</span>
+              <div class="input-group mt-2">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Weight</span>
+                </div>
+                <input type="number" class="form-control" id="bmi-metric-weight" required>
+                <div class="input-group-append">
+                  <span class="input-group-text">kg</span>
+                </div>
+                <div class="container-fluid mt-2 text-right">
+                  <button class="btn btn-danger" type="reset" id="bmi-metric-reset">Reset</button>
+                  <button class="btn btn-success" id="bmi-metric-calc">Calculate</button>
+                </div>
               </div>
-              <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-            </div>
+              <div class="input-group mt-2">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">BMI</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="bmi-metric-result"
+                  disabled>
+              </div>
+            </form>
+
+            <!-- BMI IMPERIAL -->
+            <form id="bmi-imperial" class="d-none">
+              <div class="input-group mt-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Age</span>
+                </div>
+                <input type="number" class="form-control" id="bmi-imperial-age" required>
+              </div>
+              <div class="btn-group btn-group-toggle mt-2" data-toggle="buttons">
+                <label class="btn btn-outline-success btn-sm active">
+                  <input type="radio" name="options" id="bmi-imperial-male" autocomplete="off" checked> Male
+                </label>
+                <label class="btn btn-outline-success btn-sm">
+                  <input type="radio" name="options" id="bmi-imperial-female" autocomplete="off"> Female
+                </label>
+              </div>
+              <div class="input-group mt-2">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Height</span>
+                </div>
+                <input type="number" class="form-control" id="bmi-imperial-height-ft" required>
+                <div class="input-group-append">
+                  <span class="input-group-text">feet</span>
+                </div>
+                <input type="number" class="form-control" id="bmi-imperial-height-in" required>
+                <div class="input-group-append">
+                  <span class="input-group-text">inches</span>
+                </div>
+              </div>
+              <div class="input-group mt-2">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Weight</span>
+                </div>
+                <input type="number" class="form-control" id="bmi-imperial-weight" required>
+                <div class="input-group-append">
+                  <span class="input-group-text">lb</span>
+                </div>
+                <div class="container-fluid mt-2 text-right">
+                  <button class="btn btn-success" id="bmi-imperial-calc">Calculate</button>
+                </div>
+              </div>
+              <div class="input-group mt-2">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">BMI</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="bmi-imperial-result">
+              </div>
+            </form>
           </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">Results</span>
+          <div class="resume-date" id="bmi-metric-results">
+            <h4 class="text-primary">Ideal weight chart</h4>
+            <table class="table" align="center">
+              <tbody>
+                <tr>
+                  <td class="cinfoHd">Category</td>
+                  <td class="">BMI range - kg/m
+                    <sup>2</sup>
+                  </td>
+                </tr>
+                <tr id="bmi-1">
+                  <td>Severe Thinness</td>
+                  <td>&lt; 16</td>
+                </tr>
+                <tr id="bmi-2">
+                  <td>Moderate Thinness</td>
+                  <td>16 - 17</td>
+                </tr>
+                <tr id="bmi-3">
+                  <td>Mild Thinness</td>
+                  <td>17 - 18.5</td>
+                </tr>
+                <tr id="bmi-4">
+                  <td>Normal</td>
+                  <td>18.5 - 25</td>
+                </tr>
+                <tr id="bmi-5">
+                  <td>Overweight</td>
+                  <td>25 - 30</td>
+                </tr>
+                <tr id="bmi-6">
+                  <td>Obese Class I</td>
+                  <td>30 - 35</td>
+                </tr>
+                <tr id="bmi-7">
+                  <td>Obese Class II</td>
+                  <td>35 - 40</td>
+                </tr>
+                <tr id="bmi-8">
+                  <td>Obese Class III</td>
+                  <td>&gt; 40</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- BMR CALCULATOR -->
     <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="education">
       <div class="my-auto">
         <h2 class="mb-5">Education</h2>
@@ -314,10 +428,11 @@
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <!-- <script src="vendor/jquery-easing/jquery.easing.min.js"></script> -->
 
   <!-- Custom scripts for this template -->
-  <script src="js/resume.js"></script>
+  <!-- <script src="js/resume.js"></script> -->
+  <script src="js/app.js"></script>
 
 </body>
 
