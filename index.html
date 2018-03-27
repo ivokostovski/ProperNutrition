@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Resume - Start Bootstrap Theme</title>
+  <title>Proper Nutrition</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -116,7 +116,7 @@
     <!-- BMI CALCULATOR -->
     <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
       <div class="my-auto">
-        <h2 class="mb-5">BMI Calculator</h2>
+        <h2 class="mb-4">BMI Calculator</h2>
 
         <div class="resume-item d-flex flex-column flex-md-row mb-5">
           <div class="resume-content col-6">
@@ -220,6 +220,7 @@
                   <span class="input-group-text">lb</span>
                 </div>
                 <div class="container-fluid mt-2 text-right">
+                  <button class="btn btn-danger" type="reset" id="bmi-imperial-reset">Reset</button>
                   <button class="btn btn-success" id="bmi-imperial-calc">Calculate</button>
                 </div>
               </div>
@@ -312,61 +313,95 @@
     </section>
 
     <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
-      <div class="my-auto">
-        <h2 class="mb-5">Skills</h2>
+      <div class="my-auto mr-auto">
+        <h2 class="mb-5">Semaphore</h2>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <div class="btn-group btn-group-toggle mt-2" data-toggle="buttons">
+            <label class="btn btn-secondary active">
+              <input type="radio" name="options" id="semaphore-food" autocomplete="off" checked> Food
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="semaphore-drinks" autocomplete="off"> Drinks
+            </label>
+          </div>
+        </div>
 
-        <div class="subheading mb-3">Programming Languages &amp; Tools</div>
-        <ul class="list-inline list-icons">
-          <li class="list-inline-item">
-            <i class="devicons devicons-html5"></i>
-          </li>
-          <li class="list-inline-item">
-            <i class="devicons devicons-css3"></i>
-          </li>
-          <li class="list-inline-item">
-            <i class="devicons devicons-javascript"></i>
-          </li>
-          <li class="list-inline-item">
-            <i class="devicons devicons-jquery"></i>
-          </li>
-          <li class="list-inline-item">
-            <i class="devicons devicons-sass"></i>
-          </li>
-          <li class="list-inline-item">
-            <i class="devicons devicons-less"></i>
-          </li>
-          <li class="list-inline-item">
-            <i class="devicons devicons-bootstrap"></i>
-          </li>
-          <li class="list-inline-item">
-            <i class="devicons devicons-wordpress"></i>
-          </li>
-          <li class="list-inline-item">
-            <i class="devicons devicons-grunt"></i>
-          </li>
-          <li class="list-inline-item">
-            <i class="devicons devicons-gulp"></i>
-          </li>
-          <li class="list-inline-item">
-            <i class="devicons devicons-npm"></i>
-          </li>
-        </ul>
+        <!-- Semaphore food -->
+        <form id="semaphore-food-form">
+          <div class="input-group mt-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Fat</span>
+            </div>
+            <input type="number" class="form-control" id="semaphore-fat" required>
+            <div id="semaphore-food-fat-result"><img class="semaphore-img" id="food-img-fat" src="" /></div>
+          </div>
+          <div class="input-group mt-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Saturated fatty acids</span>
+            </div>
+            <input type="number" class="form-control" id="semaphore-saturated" required>
+            <div id="semaphore-food-saturated-result"><img class="semaphore-img" id="food-img-saturated" src="" /></div>
+          </div>
+          <div class="input-group mt-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Sugar</span>
+            </div>
+            <input type="number" class="form-control" id="semaphore-sugar" required>
+            <div id="semaphore-food-sugar-result"><img class="semaphore-img" id="food-img-sugar" src="" /></div>
+          </div>
+          <div class="input-group mt-2">
+            <div class="input-group-prepend">
+              <select class="custom-select btn input-group-text" id="semaphore-natrium-or-salt">
+                <option selected value="1" id="semaphore-salt-select">Salt</option>
+                <option value="2" id="semaphore-natrium-select">Natrium</option>
+              </select>
+            </div>
+            <input type="number" class="form-control" id="semaphore-salt" required>
+            <div id="semaphore-food-natrium-or-salt-result"><img class="semaphore-img" id="food-img-salt" src="" /></div>
+          </div>
+          <div class="input-group mt-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Fiber</span>
+            </div>
+            <input type="number" class="form-control" id="semaphore-fiber" required>
+            <div id="semaphore-food-fiber-result"><img class="semaphore-img" id="food-img-fiber" src="" /></div>
+          </div>
+        </form>
 
-        <div class="subheading mb-3">Workflow</div>
-        <ul class="fa-ul mb-0">
-          <li>
-            <i class="fa-li fa fa-check"></i>
-            Mobile-First, Responsive Design</li>
-          <li>
-            <i class="fa-li fa fa-check"></i>
-            Cross Browser Testing &amp; Debugging</li>
-          <li>
-            <i class="fa-li fa fa-check"></i>
-            Cross Functional Teams</li>
-          <li>
-            <i class="fa-li fa fa-check"></i>
-            Agile Development &amp; Scrum</li>
-        </ul>
+        <!-- Semaphore drinks -->
+        <form id="semaphore-drinks-form" class="d-none">
+            <div class="input-group mt-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Fat</span>
+              </div>
+              <input type="number" class="form-control" id="semaphore-drinks-fat" required>
+              <div id="semaphore-drinks-fat-result"><img class="semaphore-img" src="" /></div>
+            </div>
+            <div class="input-group mt-2">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Saturated fatty acids</span>
+              </div>
+              <input type="number" class="form-control" id="semaphore-drinks-saturated" required>
+              <div id="semaphore-drinks-saturated-result"><img class="semaphore-img" src="" /></div>
+            </div>
+            <div class="input-group mt-2">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Sugar</span>
+              </div>
+              <input type="number" class="form-control" id="semaphore-drinks-sugar" required>
+              <div id="semaphore-drinks-sugar-result"><img class="semaphore-img" src="" /></div>
+            </div>
+            <div class="input-group mt-2">
+              <div class="input-group-prepend">
+                <select class="custom-select btn input-group-text" id="semaphore-drinks-natrium-or-salt">
+                  <option selected value="1" id="semaphore-drinks-salt-select">Salt</option>
+                  <option value="2" id="semaphore-drinks-natrium-select">Natrium</option>
+                </select>
+              </div>
+              <input type="number" class="form-control" id="semaphore-drinks-salt" required>
+              <div id="semaphore-drinks-natrium-or-salt-result"><img class="semaphore-img" src="" /></div>
+            </div>
+          </form>
       </div>
     </section>
 
@@ -377,7 +412,8 @@
           novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking.</p>
         <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring
           chef, and I spend a large amount of my free time exploring the latest technolgy advancements in the front-end web
-          development world.</p>
+          development world.
+        </p>
       </div>
     </section>
 
