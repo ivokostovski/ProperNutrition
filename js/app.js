@@ -500,7 +500,7 @@ let semaphoreDrinksCalc = () => {
       sugarImg.attr('src', grayApples);
     } 
   })
-
+  
   $('#semaphore-drinks-salt').keyup(() => {
     salt = $('#semaphore-drinks-salt').val();
     if (salt === 0) {
