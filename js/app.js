@@ -304,6 +304,10 @@ let semaphoreFoodCalc = () => {
   green = 'img/apples-green-s.png';
   yellow = 'img/apples-yellow-s.png';
   red = 'img/apples-red-s.png';
+  grayApplesR = 'img/all-apples-sr.png';
+  greenR = 'img/apples-green-sr.png';
+  yellowR = 'img/apples-yellow-sr.png';
+  redR = 'img/apples-red-sr.png';
   fatImg = $('#food-img-fat');
   saturatedImg = $('#food-img-saturated');
   sugarImg = $('#food-img-sugar');
@@ -315,7 +319,7 @@ let semaphoreFoodCalc = () => {
     saturatedImg.attr('src', grayApples);
     sugarImg.attr('src', grayApples);
     saltImg.attr('src', grayApples);
-    fiberImg.attr('src', grayApples);
+    fiberImg.attr('src', grayApplesR);
   }
   
   let natriumOrSalt = () => {
@@ -338,45 +342,53 @@ let semaphoreFoodCalc = () => {
       fatImg.attr('src', yellow);
     } else if (fat >= 20) {
       fatImg.attr('src', red);
-    }
+    } else {
+      fatImg.attr('src', grayApples);
+    } 
   });
 
   $('#semaphore-saturated').keyup(() => {
     saturated = $('#semaphore-saturated').val();
     if (saturated === 0) {
       saturatedImg.attr('src', grayApples);
-    } else if (saturated > 0 && saturated < 3) {
+    } else if (saturated > 0 && saturated < 1) {
       saturatedImg.attr('src', green);
-    } else if (saturated >= 3 && saturated < 20) {
+    } else if (saturated >= 1 && saturated < 5) {
       saturatedImg.attr('src', yellow);
-    } else if (saturated >= 20) {
+    } else if (saturated >= 5) {
       saturatedImg.attr('src', red);
-    }
+    } else {
+      saturatedImg.attr('src', grayApples);
+    } 
   })
 
   $('#semaphore-sugar').keyup(() => {
     sugar = $('#semaphore-sugar').val();
     if (sugar === 0) {
       sugarImg.attr('src', grayApples);
-    } else if (sugar > 0 && sugar < 3) {
+    } else if (sugar > 0 && sugar < 5) {
       sugarImg.attr('src', green);
-    } else if (sugar >= 3 && sugar < 20) {
+    } else if (sugar >= 5 && sugar < 15) {
       sugarImg.attr('src', yellow);
-    } else if (sugar >= 20) {
+    } else if (sugar >= 15) {
       sugarImg.attr('src', red);
-    }
+    } else {
+      sugarImg.attr('src', grayApples);
+    } 
   })
 
   $('#semaphore-salt').keyup(() => {
     salt = $('#semaphore-salt').val();
     if (salt === 0) {
       saltImg.attr('src', grayApples);
-    } else if (salt > 0 && salt < 3) {
+    } else if (salt > 0 && salt < 0.3) {
       saltImg.attr('src', green);
-    } else if (salt >= 3 && salt < 20) {
+    } else if (salt >= 0.3 && salt < 1.5) {
       saltImg.attr('src', yellow);
-    } else if (salt >= 20) {
+    } else if (salt >= 1.5) {
       saltImg.attr('src', red);
+    } else {
+      saltImg.attr('src', grayApples);
     }
   })
 
@@ -384,25 +396,138 @@ let semaphoreFoodCalc = () => {
     natrium = $('#semaphore-salt').val();
     if (natrium === 0) {
       saltImg.attr('src', grayApples);
-    } else if (natrium > 0 && natrium < 3) {
+    } else if (natrium > 0 && natrium < 0.3) {
       saltImg.attr('src', green);
-    } else if (natrium >= 3 && natrium < 20) {
+    } else if (natrium >= 0.3 && natrium < 1.5) {
       saltImg.attr('src', yellow);
-    } else if (natrium >= 20) {
+    } else if (natrium >= 1.5) {
       saltImg.attr('src', red);
+    } else {
+      saltImg.attr('src', grayApples);
     }
   })
 
   $('#semaphore-fiber').keyup(() => {
     fiber = $('#semaphore-fiber').val();
     if (fiber === 0) {
-      fiberImg.attr('src', grayApples);
+      fiberImg.attr('src', grayApplesR);
     } else if (fiber > 0 && fiber < 3) {
-      fiberImg.attr('src', green);
-    } else if (fiber >= 3 && fiber < 20) {
-      fiberImg.attr('src', yellow);
-    } else if (fiber >= 20) {
-      fiberImg.attr('src', red);
+      fiberImg.attr('src', redR);
+    } else if (fiber >= 3 && fiber < 6) {
+      fiberImg.attr('src', yellowR);
+    } else if (fiber >= 6) {
+      fiberImg.attr('src', greenR);
+    } else {
+      fiberImg.attr('src', grayApplesR);
+    }
+  })
+  
+  grayAppleEverywhere();
+  natriumOrSalt();
+};
+
+let semaphoreDrinksCalc = () => {
+  let fat, saturated, sugar, salt, natrium, fiber, green, yellow, red, fatImg, saturatedImg, sugarImg, saltImg;
+
+  fat = $('#semaphore-drinks-fat').val("");
+  saturated = $('#semaphore-drinks-saturated').val("");
+  sugar = $('#semaphore-drinks-sugar').val("");
+  grayApples = 'img/all-apples-s.png';
+  green = 'img/apples-green-s.png';
+  yellow = 'img/apples-yellow-s.png';
+  red = 'img/apples-red-s.png';
+  fatImg = $('#drinks-img-fat');
+  saturatedImg = $('#drinks-img-saturated');
+  sugarImg = $('#drinks-img-sugar');
+  saltImg = $('#drinks-img-salt');
+
+  let grayAppleEverywhere = () => {
+    fatImg.attr('src', grayApples);
+    saturatedImg.attr('src', grayApples);
+    sugarImg.attr('src', grayApples);
+    saltImg.attr('src', grayApples);
+  }
+  
+  let natriumOrSalt = () => {
+    if ($("#semaphore-drinks-natrium-or-salt").val(1)) {
+      salt = $('#semaphore-drinks-salt').val("");
+    } else if ($("#semaphore-drinks-natrium-or-salt").val(2)) {
+      natrium = $('#semaphore-drinks-salt').val("");
+    }
+  };
+
+  $('#semaphore-drinks-fat').keyup(() => {
+    fat = $('#semaphore-drinks-fat').val();
+    if (fat === 0) {
+      fatImg.attr('src', grayApples);
+    } else if (fat > 0 && fat < 1.5) {
+      fatImg.attr('src', green);
+    } else if (fat >= 1.5 && fat < 10) {
+      fatImg.attr('src', yellow);
+    } else if (fat >= 10) {
+      fatImg.attr('src', red);
+    } else {
+      fatImg.attr('src', grayApples);
+    } 
+  });
+
+  $('#semaphore-drinks-saturated').keyup(() => {
+    saturated = $('#semaphore-drinks-saturated').val();
+    if (saturated === 0) {
+      saturatedImg.attr('src', grayApples);
+    } else if (saturated > 0 && saturated < 0.75) {
+      saturatedImg.attr('src', green);
+    } else if (saturated >= 0.75 && saturated < 2.5) {
+      saturatedImg.attr('src', yellow);
+    } else if (saturated >= 2.5) {
+      saturatedImg.attr('src', red);
+    } else {
+      saturatedImg.attr('src', grayApples);
+    } 
+  })
+
+  $('#semaphore-drinks-sugar').keyup(() => {
+    sugar = $('#semaphore-drinks-sugar').val();
+    if (sugar === 0) {
+      sugarImg.attr('src', grayApples);
+    } else if (sugar > 0 && sugar < 2.5) {
+      sugarImg.attr('src', green);
+    } else if (sugar >= 2.5 && sugar < 6.3) {
+      sugarImg.attr('src', yellow);
+    } else if (sugar >= 6.3) {
+      sugarImg.attr('src', red);
+    } else {
+      sugarImg.attr('src', grayApples);
+    } 
+  })
+
+  $('#semaphore-drinks-salt').keyup(() => {
+    salt = $('#semaphore-drinks-salt').val();
+    if (salt === 0) {
+      saltImg.attr('src', grayApples);
+    } else if (salt > 0 && salt < 0.3) {
+      saltImg.attr('src', green);
+    } else if (salt >= 0.3 && salt < 1.5) {
+      saltImg.attr('src', yellow);
+    } else if (salt >= 1.5) {
+      saltImg.attr('src', red);
+    } else {
+      saltImg.attr('src', grayApples);
+    }
+  })
+
+  $('#semaphore-drinks-salt').keyup(() => {
+    natrium = $('#semaphore-drinks-salt').val();
+    if (natrium === 0) {
+      saltImg.attr('src', grayApples);
+    } else if (natrium > 0 && natrium < 0.3) {
+      saltImg.attr('src', green);
+    } else if (natrium >= 0.3 && natrium < 1.5) {
+      saltImg.attr('src', yellow);
+    } else if (natrium >= 1.5) {
+      saltImg.attr('src', red);
+    } else {
+      saltImg.attr('src', grayApples);
     }
   })
   
@@ -418,3 +543,4 @@ showOneInputField();
 //Semaphore
 showOneInputFieldSemaphore();
 semaphoreFoodCalc();
+semaphoreDrinksCalc();

@@ -119,163 +119,165 @@
         <h2 class="mb-4">BMI Calculator</h2>
 
         <div class="resume-item d-flex flex-column flex-md-row mb-5">
-          <div class="resume-content col-6">
-            <div class="text-muted mb-2">The Body Mass Index (BMI) Calculator can be used to calculate BMI value and corresponding weight status while
-              taking age into consideration. Use the "Metric" tab for the International System of Units or the "Imperial"
-              tab to convert units into US units.
-            </div>
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-              <div class="btn-group btn-group-toggle mt-2" data-toggle="buttons">
-                <label class="btn btn-secondary active">
-                  <input type="radio" name="options" id="bmi-btn-metric" autocomplete="off" checked> Metric
-                </label>
-                <label class="btn btn-secondary">
-                  <input type="radio" name="options" id="bmi-btn-imperial" autocomplete="off"> Imperial
-                </label>
+          <div class="row">
+            <div class="resume-content col-md-6 col-xs-12">
+              <div class="text-muted mb-2">The Body Mass Index (BMI) Calculator can be used to calculate BMI value and corresponding weight status while
+                taking age into consideration. Use the "Metric" tab for the International System of Units or the "Imperial"
+                tab to convert units into US units.
               </div>
-            </div>
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <div class="btn-group btn-group-toggle mt-2" data-toggle="buttons">
+                  <label class="btn btn-secondary active">
+                    <input type="radio" name="options" id="bmi-btn-metric" autocomplete="off" checked> Metric
+                  </label>
+                  <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="bmi-btn-imperial" autocomplete="off"> Imperial
+                  </label>
+                </div>
+              </div>
 
-            <!-- BMI METRIC -->
-            <form id="bmi-metric">
-              <div class="input-group mt-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Age</span>
+              <!-- BMI METRIC -->
+              <form id="bmi-metric">
+                <div class="input-group mt-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Age</span>
+                  </div>
+                  <input type="number" class="form-control" id="bmi-metric-age" required>
                 </div>
-                <input type="number" class="form-control" id="bmi-metric-age" required>
-              </div>
-              <div class="btn-group btn-group-toggle mt-2" data-toggle="buttons">
-                <label class="btn btn-outline-success btn-sm active">
-                  <input type="radio" name="options" id="bmi-metric-male" autocomplete="off" checked> Male
-                </label>
-                <label class="btn btn-outline-success btn-sm">
-                  <input type="radio" name="options" id="bmi-metric-female" autocomplete="off"> Female
-                </label>
-              </div>
-              <div class="input-group mt-2">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Height</span>
+                <div class="btn-group btn-group-toggle mt-2" data-toggle="buttons">
+                  <label class="btn btn-outline-success btn-sm active">
+                    <input type="radio" name="options" id="bmi-metric-male" autocomplete="off" checked> Male
+                  </label>
+                  <label class="btn btn-outline-success btn-sm">
+                    <input type="radio" name="options" id="bmi-metric-female" autocomplete="off"> Female
+                  </label>
                 </div>
-                <input type="number" class="form-control" id="bmi-metric-height" required>
-                <div class="input-group-append">
-                  <span class="input-group-text">cm</span>
+                <div class="input-group mt-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Height</span>
+                  </div>
+                  <input type="number" class="form-control" id="bmi-metric-height" required>
+                  <div class="input-group-append">
+                    <span class="input-group-text">cm</span>
+                  </div>
                 </div>
-              </div>
-              <div class="input-group mt-2">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Weight</span>
+                <div class="input-group mt-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Weight</span>
+                  </div>
+                  <input type="number" class="form-control" id="bmi-metric-weight" required>
+                  <div class="input-group-append">
+                    <span class="input-group-text">kg</span>
+                  </div>
+                  <div class="container-fluid mt-2 text-right">
+                    <button class="btn btn-danger" type="reset" id="bmi-metric-reset">Reset</button>
+                    <button class="btn btn-success" id="bmi-metric-calc">Calculate</button>
+                  </div>
                 </div>
-                <input type="number" class="form-control" id="bmi-metric-weight" required>
-                <div class="input-group-append">
-                  <span class="input-group-text">kg</span>
+                <div class="input-group mt-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">BMI</span>
+                  </div>
+                  <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="bmi-metric-result"
+                    disabled>
                 </div>
-                <div class="container-fluid mt-2 text-right">
-                  <button class="btn btn-danger" type="reset" id="bmi-metric-reset">Reset</button>
-                  <button class="btn btn-success" id="bmi-metric-calc">Calculate</button>
-                </div>
-              </div>
-              <div class="input-group mt-2">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">BMI</span>
-                </div>
-                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="bmi-metric-result"
-                  disabled>
-              </div>
-            </form>
+              </form>
 
-            <!-- BMI IMPERIAL -->
-            <form id="bmi-imperial" class="d-none">
-              <div class="input-group mt-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Age</span>
+              <!-- BMI IMPERIAL -->
+              <form id="bmi-imperial" class="d-none">
+                <div class="input-group mt-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Age</span>
+                  </div>
+                  <input type="number" class="form-control" id="bmi-imperial-age" required>
                 </div>
-                <input type="number" class="form-control" id="bmi-imperial-age" required>
-              </div>
-              <div class="btn-group btn-group-toggle mt-2" data-toggle="buttons">
-                <label class="btn btn-outline-success btn-sm active">
-                  <input type="radio" name="options" id="bmi-imperial-male" autocomplete="off" checked> Male
-                </label>
-                <label class="btn btn-outline-success btn-sm">
-                  <input type="radio" name="options" id="bmi-imperial-female" autocomplete="off"> Female
-                </label>
-              </div>
-              <div class="input-group mt-2">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Height</span>
+                <div class="btn-group btn-group-toggle mt-2" data-toggle="buttons">
+                  <label class="btn btn-outline-success btn-sm active">
+                    <input type="radio" name="options" id="bmi-imperial-male" autocomplete="off" checked> Male
+                  </label>
+                  <label class="btn btn-outline-success btn-sm">
+                    <input type="radio" name="options" id="bmi-imperial-female" autocomplete="off"> Female
+                  </label>
                 </div>
-                <input type="number" class="form-control" id="bmi-imperial-height-ft" required>
-                <div class="input-group-append">
-                  <span class="input-group-text">feet</span>
+                <div class="input-group mt-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Height</span>
+                  </div>
+                  <input type="number" class="form-control" id="bmi-imperial-height-ft" required>
+                  <div class="input-group-append">
+                    <span class="input-group-text">feet</span>
+                  </div>
+                  <input type="number" class="form-control" id="bmi-imperial-height-in" required>
+                  <div class="input-group-append">
+                    <span class="input-group-text">inches</span>
+                  </div>
                 </div>
-                <input type="number" class="form-control" id="bmi-imperial-height-in" required>
-                <div class="input-group-append">
-                  <span class="input-group-text">inches</span>
+                <div class="input-group mt-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Weight</span>
+                  </div>
+                  <input type="number" class="form-control" id="bmi-imperial-weight" required>
+                  <div class="input-group-append">
+                    <span class="input-group-text">lb</span>
+                  </div>
+                  <div class="container-fluid mt-2 text-right">
+                    <button class="btn btn-danger" type="reset" id="bmi-imperial-reset">Reset</button>
+                    <button class="btn btn-success" id="bmi-imperial-calc">Calculate</button>
+                  </div>
                 </div>
-              </div>
-              <div class="input-group mt-2">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Weight</span>
+                <div class="input-group mt-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">BMI</span>
+                  </div>
+                  <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="bmi-imperial-result">
                 </div>
-                <input type="number" class="form-control" id="bmi-imperial-weight" required>
-                <div class="input-group-append">
-                  <span class="input-group-text">lb</span>
-                </div>
-                <div class="container-fluid mt-2 text-right">
-                  <button class="btn btn-danger" type="reset" id="bmi-imperial-reset">Reset</button>
-                  <button class="btn btn-success" id="bmi-imperial-calc">Calculate</button>
-                </div>
-              </div>
-              <div class="input-group mt-2">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">BMI</span>
-                </div>
-                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="bmi-imperial-result">
-              </div>
-            </form>
-          </div>
-          <div class="resume-date" id="bmi-metric-results">
-            <h4 class="text-primary">Ideal weight chart</h4>
-            <table class="table" align="center">
-              <tbody>
-                <tr>
-                  <td class="cinfoHd">Category</td>
-                  <td class="">BMI range - kg/m
-                    <sup>2</sup>
-                  </td>
-                </tr>
-                <tr id="bmi-1">
-                  <td>Severe Thinness</td>
-                  <td>&lt; 16</td>
-                </tr>
-                <tr id="bmi-2">
-                  <td>Moderate Thinness</td>
-                  <td>16 - 17</td>
-                </tr>
-                <tr id="bmi-3">
-                  <td>Mild Thinness</td>
-                  <td>17 - 18.5</td>
-                </tr>
-                <tr id="bmi-4">
-                  <td>Normal</td>
-                  <td>18.5 - 25</td>
-                </tr>
-                <tr id="bmi-5">
-                  <td>Overweight</td>
-                  <td>25 - 30</td>
-                </tr>
-                <tr id="bmi-6">
-                  <td>Obese Class I</td>
-                  <td>30 - 35</td>
-                </tr>
-                <tr id="bmi-7">
-                  <td>Obese Class II</td>
-                  <td>35 - 40</td>
-                </tr>
-                <tr id="bmi-8">
-                  <td>Obese Class III</td>
-                  <td>&gt; 40</td>
-                </tr>
-              </tbody>
-            </table>
+              </form>
+            </div>
+            <div class="resume-date col-md-6 col-xs-12 pt-2" id="bmi-metric-results">
+              <h4 class="text-primary">Ideal weight chart</h4>
+              <table class="table" align="center">
+                <tbody>
+                  <tr>
+                    <td class="cinfoHd">Category</td>
+                    <td class="">BMI range - kg/m
+                      <sup>2</sup>
+                    </td>
+                  </tr>
+                  <tr id="bmi-1">
+                    <td>Severe Thinness</td>
+                    <td>&lt; 16</td>
+                  </tr>
+                  <tr id="bmi-2">
+                    <td>Moderate Thinness</td>
+                    <td>16 - 17</td>
+                  </tr>
+                  <tr id="bmi-3">
+                    <td>Mild Thinness</td>
+                    <td>17 - 18.5</td>
+                  </tr>
+                  <tr id="bmi-4">
+                    <td>Normal</td>
+                    <td>18.5 - 25</td>
+                  </tr>
+                  <tr id="bmi-5">
+                    <td>Overweight</td>
+                    <td>25 - 30</td>
+                  </tr>
+                  <tr id="bmi-6">
+                    <td>Obese Class I</td>
+                    <td>30 - 35</td>
+                  </tr>
+                  <tr id="bmi-7">
+                    <td>Obese Class II</td>
+                    <td>35 - 40</td>
+                  </tr>
+                  <tr id="bmi-8">
+                    <td>Obese Class III</td>
+                    <td>&gt; 40</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
@@ -313,8 +315,12 @@
     </section>
 
     <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
-      <div class="my-auto mr-auto">
+      <div class="my-auto col-7">
         <h2 class="mb-5">Semaphore</h2>
+        <p>Enter the amount of fat, sugar and salt per
+          <strong>100 g</strong> from a particular food or drink and the semaphore will show whether there is a large, medium or
+          small amount of that ingredient in the product. Consume more products that have green and yellow lights, ratter
+          than products with red lights.</p>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
           <div class="btn-group btn-group-toggle mt-2" data-toggle="buttons">
             <label class="btn btn-secondary active">
@@ -333,21 +339,27 @@
               <span class="input-group-text">Fat</span>
             </div>
             <input type="number" class="form-control" id="semaphore-fat" required>
-            <div id="semaphore-food-fat-result"><img class="semaphore-img" id="food-img-fat" src="" /></div>
+            <div id="semaphore-food-fat-result">
+              <img class="semaphore-img" id="food-img-fat" src="" />
+            </div>
           </div>
           <div class="input-group mt-2">
             <div class="input-group-prepend">
               <span class="input-group-text">Saturated fatty acids</span>
             </div>
             <input type="number" class="form-control" id="semaphore-saturated" required>
-            <div id="semaphore-food-saturated-result"><img class="semaphore-img" id="food-img-saturated" src="" /></div>
+            <div id="semaphore-food-saturated-result">
+              <img class="semaphore-img" id="food-img-saturated" src="" />
+            </div>
           </div>
           <div class="input-group mt-2">
             <div class="input-group-prepend">
               <span class="input-group-text">Sugar</span>
             </div>
             <input type="number" class="form-control" id="semaphore-sugar" required>
-            <div id="semaphore-food-sugar-result"><img class="semaphore-img" id="food-img-sugar" src="" /></div>
+            <div id="semaphore-food-sugar-result">
+              <img class="semaphore-img" id="food-img-sugar" src="" />
+            </div>
           </div>
           <div class="input-group mt-2">
             <div class="input-group-prepend">
@@ -357,51 +369,63 @@
               </select>
             </div>
             <input type="number" class="form-control" id="semaphore-salt" required>
-            <div id="semaphore-food-natrium-or-salt-result"><img class="semaphore-img" id="food-img-salt" src="" /></div>
+            <div id="semaphore-food-natrium-or-salt-result">
+              <img class="semaphore-img" id="food-img-salt" src="" />
+            </div>
           </div>
           <div class="input-group mt-2">
             <div class="input-group-prepend">
               <span class="input-group-text">Fiber</span>
             </div>
             <input type="number" class="form-control" id="semaphore-fiber" required>
-            <div id="semaphore-food-fiber-result"><img class="semaphore-img" id="food-img-fiber" src="" /></div>
+            <div id="semaphore-food-fiber-result">
+              <img class="semaphore-img" id="food-img-fiber" src="" />
+            </div>
           </div>
         </form>
 
         <!-- Semaphore drinks -->
         <form id="semaphore-drinks-form" class="d-none">
-            <div class="input-group mt-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Fat</span>
-              </div>
-              <input type="number" class="form-control" id="semaphore-drinks-fat" required>
-              <div id="semaphore-drinks-fat-result"><img class="semaphore-img" src="" /></div>
+          <div class="input-group mt-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Fat</span>
             </div>
-            <div class="input-group mt-2">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Saturated fatty acids</span>
-              </div>
-              <input type="number" class="form-control" id="semaphore-drinks-saturated" required>
-              <div id="semaphore-drinks-saturated-result"><img class="semaphore-img" src="" /></div>
+            <input type="number" class="form-control" id="semaphore-drinks-fat" required>
+            <div id="semaphore-drinks-fat-result">
+              <img class="semaphore-img" id="drinks-img-fat" src="" />
             </div>
-            <div class="input-group mt-2">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Sugar</span>
-              </div>
-              <input type="number" class="form-control" id="semaphore-drinks-sugar" required>
-              <div id="semaphore-drinks-sugar-result"><img class="semaphore-img" src="" /></div>
+          </div>
+          <div class="input-group mt-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Saturated fatty acids</span>
             </div>
-            <div class="input-group mt-2">
-              <div class="input-group-prepend">
-                <select class="custom-select btn input-group-text" id="semaphore-drinks-natrium-or-salt">
-                  <option selected value="1" id="semaphore-drinks-salt-select">Salt</option>
-                  <option value="2" id="semaphore-drinks-natrium-select">Natrium</option>
-                </select>
-              </div>
-              <input type="number" class="form-control" id="semaphore-drinks-salt" required>
-              <div id="semaphore-drinks-natrium-or-salt-result"><img class="semaphore-img" src="" /></div>
+            <input type="number" class="form-control" id="semaphore-drinks-saturated" required>
+            <div id="semaphore-drinks-saturated-result">
+              <img class="semaphore-img" id="drinks-img-saturated" src="" />
             </div>
-          </form>
+          </div>
+          <div class="input-group mt-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Sugar</span>
+            </div>
+            <input type="number" class="form-control" id="semaphore-drinks-sugar" required>
+            <div id="semaphore-drinks-sugar-result">
+              <img class="semaphore-img" id="drinks-img-sugar" src="" />
+            </div>
+          </div>
+          <div class="input-group mt-2">
+            <div class="input-group-prepend">
+              <select class="custom-select btn input-group-text" id="semaphore-drinks-natrium-or-salt">
+                <option selected value="1" id="semaphore-drinks-salt-select">Salt</option>
+                <option value="2" id="semaphore-drinks-natrium-select">Natrium</option>
+              </select>
+            </div>
+            <input type="number" class="form-control" id="semaphore-drinks-salt" required>
+            <div id="semaphore-drinks-natrium-or-salt-result">
+              <img class="semaphore-img" id="drinks-img-salt" src="" />
+            </div>
+          </div>
+        </form>
       </div>
     </section>
 
