@@ -1,8 +1,13 @@
 // *** BMI CALCULATOR ***
 
+$('.bmi-underweight').tooltip();
+$('.bmi-normal').tooltip();
+$('.bmi-overweight').tooltip();
+$('.bmi-obese').tooltip();
+
 // Selector
 
-let showOneInputField = () => {
+let bmiShowOneInputField = () => {
   $("#bmi-btn-metric").change(() => {
     if ($("#bmi-metric").hasClass("d-none")) {
       //if metric input hidden
@@ -26,13 +31,14 @@ let showOneInputField = () => {
 
 // Calculation - metric
 
-let metricCalculation = () => {
-  let age, sex, height, weight, result, goodToGo, ageEmpty, heightEmpty, weightEmpty;
+let bmiMetricCalculation = () => {
+  let age, sex, height, weight, result, goodToGo, ageEmpty, heightEmpty, weightEmpty, activity, bmr, calories;
 
   goodToGo = false;
   ageEmpty = true;
   weightEmpty = true;
   heightEmpty = true;
+  sex = "male";
 
   let showResult = () => {
     if (!ageEmpty && !weightEmpty && !heightEmpty) {
@@ -43,34 +49,83 @@ let metricCalculation = () => {
 
     if (goodToGo) {
       bmiMetricCalculate();
+      bmrMetricCalculate();
+      caloriesPerDayMetric();
     } else {
       //do nothing
     }
   }
   
+  //BMI Result
   let bmiMetricCalculate = () => {
     let input = (weight / Math.pow(height, 2) * 10000);
     result = (input * 100) / 100;
     $("#bmi-metric-result").val(result.toFixed(2));
   };
 
+  //BMR Result
+  let bmrMetricCalculate = () => {
+    if (sex === "male") {
+      bmr = (10 * parseInt(weight)) + (6.25 * parseInt(height)) - (5 * parseInt(age)) + 5;
+    } else if (sex === "female") {
+      bmr = (10 * parseInt(weight)) + (6.25 * parseInt(height)) - (5 * parseInt(age)) - 161;
+    };
+  };
+
+  //Calories per day
+  let caloriesPerDayMetric = () => {
+    switch (activity) {
+      case 1:  
+        calories = bmr * 1.2;
+        break;
+      case 2:
+      calories = bmr * 1.375;
+        break;
+      case 3:
+      calories = bmr * 1.55;
+        break;
+      case 4:
+      calories = bmr * 1.725;
+        break;
+      case 5:
+      calories = bmr * 1.9;
+        break;
+    };
+  };
+
+  //Activity selector
+  let activitySelector = () => {
+    if ($("#activity-metric").val(1)) {
+      activity = 1;
+    } else if ($("#activity-metric").val(2)) {
+      activity = 2;
+    } else if ($("#activity-metric").val(3)) {
+      activity = 3;
+    } else if ($("#activity-metric").val(4)) {
+      activity = 4;
+    } else if ($("#activity-metric").val(5)) {
+      activity = 5;
+    }
+  };
+
+  //Sex selector
   let sexChange = () => {
     $("#bmi-metric-female").change(() => {
       if ($("#bmi-metric-female:checked")) {
-        console.log("female ch");
-        sex = $("#bmi-metric-female");
+        sex = "female";
+        console.log(sex)
       } else {
-        console.log("male ch");
-        sex = $("#bmi-metric-male");
+        sex = "male";
+        console.log(sex)
       }
     });
     $("#bmi-metric-male").change(() => {
       if ($("#bmi-metric-male:checked")) {
-        console.log("male ch");
-        sex = $("#bmi-metric-female");
+        sex = "male";
+        console.log(sex)
       } else {
-        console.log("female ch");
-        sex = $("#bmi-metric-male");
+        sex = "female";
+        console.log(sex)
       }
     });
   };
@@ -136,12 +191,13 @@ let metricCalculation = () => {
     showResult();
     bmiSelector();
   });
+
   sexChange();
 };
 
 // Calculation - imperial
 
-let imperialCalculation = () => {
+let bmiImperialCalculation = () => {
   let age, sex, height, heightFt, heightIn, weight, result, goodToGo, ageEmpty, heightEmpty, weightEmpty;
 
   goodToGo = false;
@@ -536,9 +592,9 @@ let semaphoreDrinksCalc = () => {
 };
 
 //BMI
-imperialCalculation();
-metricCalculation();
-showOneInputField();
+bmiImperialCalculation();
+bmiMetricCalculation();
+bmiShowOneInputField();
 
 //Semaphore
 showOneInputFieldSemaphore();
