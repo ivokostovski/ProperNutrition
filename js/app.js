@@ -32,13 +32,19 @@ let bmiShowOneInputField = () => {
 // Calculation - metric
 
 let bmiMetricCalculation = () => {
-  let age, sex, height, weight, result, goodToGo, ageEmpty, heightEmpty, weightEmpty, activity, bmr, calories;
+  let age, sex, height, weight, result, goodToGo, ageEmpty, heightEmpty, weightEmpty, activity, bmr, calories, breakfast, lunch, dinner, protein, fat, carbs, bc, bf, bp, bt, lc, lf, lp, lt, dc, df, dp, dt, tc, tf, tp, tt;
 
   goodToGo = false;
   ageEmpty = true;
   weightEmpty = true;
   heightEmpty = true;
   sex = "male";
+  breakfast = 0.3;
+  lunch = 0.4;
+  dinner = 0.3;
+  carbs = 0.6;
+  fat = 0.275;
+  protein = 0.125;
 
   let showResult = () => {
     if (!ageEmpty && !weightEmpty && !heightEmpty) {
