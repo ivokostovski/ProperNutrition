@@ -117,7 +117,8 @@
         <div class="resume-item d-flex flex-column flex-md-row mb-5">
           <div class="row">
             <div class="resume-content col-md-6 col-xs-12">
-              <div class="text-muted mb-2">By entering your age, height and weight, and selecting your sex and activity, you will get your Body Mass Index, Basal Metabolic Rate and and a detailed data on how many calories you need to consume per day.</div>
+              <div class="text-muted mb-2">By entering your age, height and weight, and selecting your sex and activity, you will get your Body Mass Index,
+                Basal Metabolic Rate and and a detailed data on how many calories you need to consume per day.</div>
               <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <div class="btn-group btn-group-toggle mt-2" data-toggle="buttons">
                   <label class="btn btn-secondary active">
@@ -179,12 +180,24 @@
                     <button class="btn btn-success" id="bmi-metric-calc">Calculate</button>
                   </div>
                 </div>
-                <div class="input-group mt-2">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">BMI</span>
+                <div class="row d-flex">
+                  <div class="input-group mt-2 col-4">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">BMI</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="bmi-metric-result"
+                      disabled>
                   </div>
-                  <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="bmi-metric-result"
-                    disabled>
+                  <div class="input-group mt-2 col-4">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">BMR</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="bmr-metric-result"
+                      disabled>
+                  </div>
+                  <div class="col-4 mt-2 text-center">
+                    <button type="button" class="btn btn-primary" id="btn-calorie-table" data-target="#calorie-table" data-toggle="modal">See more</button>
+                  </div>
                 </div>
               </form>
 
@@ -252,7 +265,7 @@
             </div>
             <div class="resume-date col-md-6 col-xs-12 pt-2" id="bmi-metric-results">
               <h4 class="text-primary">Ideal weight chart</h4>
-              
+
               <table class="table table-hover" align="center">
                 <tbody>
                   <tr>
@@ -328,51 +341,69 @@
           </div>
         </div>
       </div>
-
-      <div>
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col"></th>
-              <th scope="col">Carbs</th>
-              <th scope="col">Fat</th>
-              <th scope="col">Protein</th>
-              <th scope="col">Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Breakfast</th>
-              <td id="bc"></td>
-              <td id="bf"></td>
-              <td id="bp"></td>
-              <td id="bt"></td>
-            </tr>
-            <tr>
-              <th scope="row">Lunch</th>
-              <td id="lc"></td>
-              <td id="lf"></td>
-              <td id="lp"></td>
-              <td id="lt"></td>
-            </tr>
-            <tr>
-              <th scope="row">Dinner</th>
-              <td id="dc"></td>
-              <td id="df"></td>
-              <td id="dp"></td>
-              <td id="dt"></td>
-            </tr>
-            <tr>
-              <th scope="row">Total</th>
-              <td id="tc"></td>
-              <td id="tf"></td>
-              <td id="tp"></td>
-              <td id="tt"></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
     </section>
+
+    <!-- MODAL Calories -->
+
+    <div class="modal fade bd-example-modal-lg" id="calorie-table" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Nutrition table</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">Carbs</th>
+                  <th scope="col">Fat</th>
+                  <th scope="col">Protein</th>
+                  <th scope="col">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Breakfast</th>
+                  <td id="bc"></td>
+                  <td id="bf"></td>
+                  <td id="bp"></td>
+                  <td id="bt"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Lunch</th>
+                  <td id="lc"></td>
+                  <td id="lf"></td>
+                  <td id="lp"></td>
+                  <td id="lt"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Dinner</th>
+                  <td id="dc"></td>
+                  <td id="df"></td>
+                  <td id="dp"></td>
+                  <td id="dt"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Total</th>
+                  <td id="tc"></td>
+                  <td id="tf"></td>
+                  <td id="tp"></td>
+                  <td id="tt"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- BMR CALCULATOR -->
     <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="education">
@@ -381,8 +412,8 @@
         <div class="resume-item d-flex flex-column flex-md-row mb-5">
           <div class="row">
             <div class="resume-content col-md-6 col-xs-12">
-              <div class="text-muted mb-2">The BMR Calculator will calculate your Basal
-                Metabolic Rate (BMR), the number of calories you'd burn if you stayed in bed all day.</div>
+              <div class="text-muted mb-2">The BMR Calculator will calculate your Basal Metabolic Rate (BMR), the number of calories you'd burn if you
+                stayed in bed all day.</div>
               <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <div class="btn-group btn-group-toggle mt-2" data-toggle="buttons">
                   <label class="btn btn-secondary active">

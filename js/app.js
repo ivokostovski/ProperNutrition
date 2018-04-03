@@ -32,19 +32,19 @@ let bmiShowOneInputField = () => {
 // Calculation - metric
 
 let bmiMetricCalculation = () => {
-  let age, sex, height, weight, result, goodToGo, ageEmpty, heightEmpty, weightEmpty, activity, bmr, calories, breakfast, lunch, dinner, protein, fat, carbs, bc, bf, bp, bt, lc, lf, lp, lt, dc, df, dp, dt, tc, tf, tp, tt;
+  let age, sex, height, weight, result, goodToGo, ageEmpty, heightEmpty, weightEmpty, activity, bmr, calories, breakfastP, lunchP, dinnerP, proteinP, fatP, carbsP, bc, bf, bp, bt, lc, lf, lp, lt, dc, df, dp, dt, tc, tf, tp, tt, carbs, fat, protein, breakfast, lunch, dinner;
 
   goodToGo = false;
   ageEmpty = true;
   weightEmpty = true;
   heightEmpty = true;
   sex = "male";
-  breakfast = 0.3;
-  lunch = 0.4;
-  dinner = 0.3;
-  carbs = 0.6;
-  fat = 0.275;
-  protein = 0.125;
+  breakfastP = 0.3;
+  lunchP = 0.4;
+  dinnerP = 0.3;
+  carbsP = 0.6;
+  fatP = 0.275;
+  proteinP = 0.125;
 
   let showResult = () => {
     if (!ageEmpty && !weightEmpty && !heightEmpty) {
@@ -56,7 +56,7 @@ let bmiMetricCalculation = () => {
     if (goodToGo) {
       bmiMetricCalculate();
       bmrMetricCalculate();
-      caloriesPerDayMetric();
+      populateTable();
     } else {
       //do nothing
     }
@@ -76,13 +76,10 @@ let bmiMetricCalculation = () => {
     } else if (sex === "female") {
       bmr = (10 * parseInt(weight)) + (6.25 * parseInt(height)) - (5 * parseInt(age)) - 161;
     };
-  };
-
-  //Calories per day
-  let caloriesPerDayMetric = () => {
+    activity = parseInt($('#activity-metric option:selected').val());
     switch (activity) {
       case 1:  
-        calories = bmr * 1.2;
+      calories = bmr * 1.2;
         break;
       case 2:
       calories = bmr * 1.375;
@@ -97,21 +94,51 @@ let bmiMetricCalculation = () => {
       calories = bmr * 1.9;
         break;
     };
+    $("#bmr-metric-result").val(calories.toFixed(0));
   };
 
-  //Activity selector
-  let activitySelector = () => {
-    if ($("#activity-metric").val(1)) {
-      activity = 1;
-    } else if ($("#activity-metric").val(2)) {
-      activity = 2;
-    } else if ($("#activity-metric").val(3)) {
-      activity = 3;
-    } else if ($("#activity-metric").val(4)) {
-      activity = 4;
-    } else if ($("#activity-metric").val(5)) {
-      activity = 5;
-    }
+  //Populate table
+  let populateTable = () => {
+    carbs = calories * carbsP;
+    protein = calories * proteinP;
+    fat = calories * fatP;
+
+    bc = carbs * breakfastP;
+    bf = fat * breakfastP;
+    bp = protein * breakfastP;
+    bt = bc + bf + bp;
+
+    lc = carbs * lunchP;
+    lf = fat * lunchP;
+    lp = protein * lunchP;
+    lt = lc + lf + lp;
+
+    dc = carbs * dinnerP;
+    df = fat * dinnerP;
+    dp = protein * dinnerP;
+    dt = dc + df + dp;
+
+    tc = bc + lc + dc;
+    tf = bf + lf + df;
+    tp = bp + lp + dp;
+    tt = tc + tf + tp;
+
+  $('#bc').html(bc.toFixed(0));
+  $('#bf').html(bf.toFixed(0));
+  $('#bp').html(bp.toFixed(0));
+  $('#bt').html(bt.toFixed(0));
+  $('#lc').html(lc.toFixed(0));
+  $('#lf').html(lf.toFixed(0));
+  $('#lp').html(lp.toFixed(0));
+  $('#lt').html(lt.toFixed(0));
+  $('#dc').html(dc.toFixed(0));
+  $('#df').html(df.toFixed(0));
+  $('#dp').html(dp.toFixed(0));
+  $('#dt').html(dt.toFixed(0));
+  $('#tc').html(tc.toFixed(0));
+  $('#tf').html(tf.toFixed(0));
+  $('#tp').html(tp.toFixed(0));
+  $('#tt').html(tt.toFixed(0));
   };
 
   //Sex selector
