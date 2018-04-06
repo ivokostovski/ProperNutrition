@@ -231,12 +231,19 @@ let bmiMetricCalculation = () => {
 // Calculation - imperial
 
 let bmiImperialCalculation = () => {
-  let age, sex, height, heightFt, heightIn, weight, result, goodToGo, ageEmpty, heightEmpty, weightEmpty;
+  let age, sex, height, heightFt, heightIn, weight, result, goodToGo, ageEmpty, heightEmpty, weightEmpty, activity, bmr, calories, breakfastP, lunchP, dinnerP, proteinP, fatP, carbsP, bc, bf, bp, bt, lc, lf, lp, lt, dc, df, dp, dt, tc, tf, tp, tt, carbs, fat, protein, breakfast, lunch, dinner;
 
   goodToGo = false;
   ageEmpty = true;
   weightEmpty = true;
   heightEmpty = true;
+  sex = "male";
+  breakfastP = 0.3;
+  lunchP = 0.4;
+  dinnerP = 0.3;
+  carbsP = 0.6;
+  fatP = 0.275;
+  proteinP = 0.125;
 
   let showResult = () => {
     if (!ageEmpty && !weightEmpty && !heightEmpty) {
@@ -246,7 +253,9 @@ let bmiImperialCalculation = () => {
     }
 
     if (goodToGo) {
-      bmiMetricCalculate();
+      bmiImperialCalculate();
+      bmrImperialCalculate();
+      populateTable();
     } else {
       //do nothing
     }
@@ -257,33 +266,104 @@ let bmiImperialCalculation = () => {
     console.log(ftToInches);
     height = ftToInches * 2.54;
     weight = weight * 0.454;
-    console.log("height:" + height);
-    console.log("weight:" + weight);
   }
   
-  let bmiMetricCalculate = () => {
+  //BMI Result
+  let bmiImperialCalculate = () => {
     let input = (weight / Math.pow(height, 2) * 10000);
     result = (input * 100) / 100;
     $("#bmi-imperial-result").val(result.toFixed(2));
   };
 
+  //BMR Result
+  let bmrImperialCalculate = () => {
+    if (sex === "male") {
+      bmr = (10 * parseInt(weight)) + (6.25 * parseInt(height)) - (5 * parseInt(age)) + 5;
+    } else if (sex === "female") {
+      bmr = (10 * parseInt(weight)) + (6.25 * parseInt(height)) - (5 * parseInt(age)) - 161;
+    };
+    activity = parseInt($('#activity-imperial option:selected').val());
+    switch (activity) {
+      case 1:  
+      calories = bmr * 1.2;
+        break;
+      case 2:
+      calories = bmr * 1.375;
+        break;
+      case 3:
+      calories = bmr * 1.55;
+        break;
+      case 4:
+      calories = bmr * 1.725;
+        break;
+      case 5:
+      calories = bmr * 1.9;
+        break;
+    };
+    $("#bmr-imperial-result").val(calories.toFixed(0));
+  };
+
+
+  let populateTable = () => {
+    carbs = calories * carbsP;
+    protein = calories * proteinP;
+    fat = calories * fatP;
+
+    bc = carbs * breakfastP;
+    bf = fat * breakfastP;
+    bp = protein * breakfastP;
+    bt = bc + bf + bp;
+
+    lc = carbs * lunchP;
+    lf = fat * lunchP;
+    lp = protein * lunchP;
+    lt = lc + lf + lp;
+
+    dc = carbs * dinnerP;
+    df = fat * dinnerP;
+    dp = protein * dinnerP;
+    dt = dc + df + dp;
+
+    tc = bc + lc + dc;
+    tf = bf + lf + df;
+    tp = bp + lp + dp;
+    tt = tc + tf + tp;
+
+  $('#bc').html(bc.toFixed(0));
+  $('#bf').html(bf.toFixed(0));
+  $('#bp').html(bp.toFixed(0));
+  $('#bt').html(bt.toFixed(0));
+  $('#lc').html(lc.toFixed(0));
+  $('#lf').html(lf.toFixed(0));
+  $('#lp').html(lp.toFixed(0));
+  $('#lt').html(lt.toFixed(0));
+  $('#dc').html(dc.toFixed(0));
+  $('#df').html(df.toFixed(0));
+  $('#dp').html(dp.toFixed(0));
+  $('#dt').html(dt.toFixed(0));
+  $('#tc').html(tc.toFixed(0));
+  $('#tf').html(tf.toFixed(0));
+  $('#tp').html(tp.toFixed(0));
+  $('#tt').html(tt.toFixed(0));
+  };
+
   let sexChange = () => {
     $("#bmi-imperial-female").change(() => {
-      if ($("#bmi-metric-female:checked")) {
-        console.log("female ch");
-        sex = $("#bmi-imperial-female");
+      if ($("#bmi-imperial-female:checked")) {
+        sex = "female";
+        console.log(sex)
       } else {
-        console.log("male ch");
-        sex = $("#bmi-imperial-male");
+        sex = "male";
+        console.log(sex)
       }
     });
     $("#bmi-imperial-male").change(() => {
       if ($("#bmi-imperial-male:checked")) {
-        console.log("male ch");
-        sex = $("#bmi-imperial-female");
+        sex = "male";
+        console.log(sex)
       } else {
-        console.log("female ch");
-        sex = $("#bmi-imperial-male");
+        sex = "female";
+        console.log(sex)
       }
     });
   };

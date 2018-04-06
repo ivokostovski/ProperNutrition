@@ -243,11 +243,11 @@
                       <label class="input-group-text" for="bmi-activity">Activity</label>
                     </div>
                     <select class="custom-select" id="activity-imperial">
-                      <option id="bmi-imperial-activity-1" selected>Little to no exercise</option>
-                      <option id="bmi-imperial-activity-2">Light exercise (1–3 days per week)</option>
-                      <option id="bmi-imperial-activity-3">Moderate exercise (3–5 days per week)</option>
-                      <option id="bmi-imperial-activity-4">Heavy exercise (6–7 days per week)</option>
-                      <option id="bmi-imperial-activity-5">Very heavy exercise (twice per day, extra heavy workouts)</option>
+                      <option value="1" id="bmi-activity-1-imperial" selected>Little to no exercise</option>
+                      <option value="2" id="bmi-activity-2-imperial">Light exercise (1–3 days per week)</option>
+                      <option value="3" id="bmi-activity-3-imperial">Moderate exercise (3–5 days per week)</option>
+                      <option value="4" id="bmi-activity-4-imperial">Heavy exercise (6–7 days per week)</option>
+                      <option value="5" id="bmi-activity-5-imperial">Very heavy exercise (twice per day, extra heavy workouts)</option>
                     </select>
                   </div>
                   <div class="container-fluid mt-2 text-right">
@@ -255,11 +255,24 @@
                     <button class="btn btn-success" id="bmi-imperial-calc">Calculate</button>
                   </div>
                 </div>
-                <div class="input-group mt-2">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">BMI</span>
+                <div class="row d-flex">
+                  <div class="input-group mt-2 col-4">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">BMI</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="bmi-imperial-result"
+                      disabled>
                   </div>
-                  <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="bmi-imperial-result">
+                  <div class="input-group mt-2 col-4">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">BMR</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="bmr-imperial-result"
+                      disabled>
+                  </div>
+                  <div class="col-4 mt-2 text-center">
+                    <button type="button" class="btn btn-primary" data-target="#calorie-table" data-toggle="modal">See more</button>
+                  </div>
                 </div>
               </form>
             </div>
