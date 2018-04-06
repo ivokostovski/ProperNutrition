@@ -47,16 +47,13 @@
           <a class="nav-link js-scroll-trigger" href="#experience">Your Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#education">/</a>
+          <a class="nav-link js-scroll-trigger" href="#education">Body Fat Calculator</a>
         </li>
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="#skills">Nutrition Label Semaphore</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#interests">/</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#awards">Body Fat Calculator</a>
+          <a class="nav-link js-scroll-trigger" href="#interests">About</a>
         </li>
       </ul>
     </div>
@@ -93,15 +90,7 @@
             <a href="#">
               <span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          <li class="list-inline-item">
-            <a href="#">
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
               </span>
             </a>
           </li>
@@ -418,47 +407,73 @@
       </div>
     </div>
 
-    <!-- BMR CALCULATOR -->
+    <!-- Body fat Slide -->
     <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="education">
       <div class="my-auto">
-        <h2 class="mb-5">Basal Metabolic Rate</h2>
-        <div class="resume-item d-flex flex-column flex-md-row mb-5">
+        <h2 class="mb-4">Body Fat Calculator</h2>
+        <div class="resume-item d-flex flex-column mb-5">
           <div class="row">
             <div class="resume-content col-md-6 col-xs-12">
-              <div class="text-muted mb-2">The BMR Calculator will calculate your Basal Metabolic Rate (BMR), the number of calories you'd burn if you
-                stayed in bed all day.</div>
+              <div class="text-muted mb-2">test</div>
               <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <div class="btn-group btn-group-toggle mt-2" data-toggle="buttons">
                   <label class="btn btn-secondary active">
-                    <input type="radio" name="options" id="bmr-btn-metric" autocomplete="off" checked> Metric
+                    <input type="radio" name="options" id="radio-bodyfat-m" autocomplete="off" checked> Metric
                   </label>
                   <label class="btn btn-secondary">
-                    <input type="radio" name="options" id="bmr-btn-imperial" autocomplete="off"> Imperial
+                    <input type="radio" name="options" id="radio-bodyfat-i" autocomplete="off"> Imperial
                   </label>
                 </div>
               </div>
 
-              <!-- BMR METRIC -->
-              <form id="bmr-metric">
+              <!-- BMI METRIC -->
+              <form id="bodyfat-m">
                 <div class="input-group mt-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">Age</span>
                   </div>
-                  <input type="number" class="form-control" id="bmr-metric-age" required>
+                  <input type="number" class="form-control" id="bodyfat-m-age" required>
                 </div>
                 <div class="btn-group btn-group-toggle mt-2" data-toggle="buttons">
                   <label class="btn btn-outline-success btn-sm active">
-                    <input type="radio" name="options" id="bmr-metric-male" autocomplete="off" checked> Male
+                    <input type="radio" name="options" id="bodyfat-m-male" autocomplete="off" checked> Male
                   </label>
                   <label class="btn btn-outline-success btn-sm">
-                    <input type="radio" name="options" id="bmr-metric-female" autocomplete="off"> Female
+                    <input type="radio" name="options" id="bodyfat-m-female" autocomplete="off"> Female
                   </label>
                 </div>
                 <div class="input-group mt-2">
                   <div class="input-group-prepend">
                     <span class="input-group-text">Height</span>
                   </div>
-                  <input type="number" class="form-control" id="bmr-metric-height" required>
+                  <input type="number" class="form-control" id="bodyfat-m-height" required>
+                  <div class="input-group-append">
+                    <span class="input-group-text">cm</span>
+                  </div>
+                </div>
+                <div class="input-group mt-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Waist</span>
+                  </div>
+                  <input type="number" class="form-control" id="bodyfat-m-waist" required>
+                  <div class="input-group-append">
+                    <span class="input-group-text">cm</span>
+                  </div>
+                </div>
+                <div class="input-group mt-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Hip</span>
+                  </div>
+                  <input type="number" class="form-control" id="bodyfat-m-hip" required>
+                  <div class="input-group-append">
+                    <span class="input-group-text">cm</span>
+                  </div>
+                </div>
+                <div class="input-group mt-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Neck</span>
+                  </div>
+                  <input type="number" class="form-control" id="bodyfat-m-neck" required>
                   <div class="input-group-append">
                     <span class="input-group-text">cm</span>
                   </div>
@@ -467,49 +482,82 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">Weight</span>
                   </div>
-                  <input type="number" class="form-control" id="bmr-metric-weight" required>
+                  <input type="number" class="form-control" id="bodyfat-m-weight" required>
                   <div class="input-group-append">
                     <span class="input-group-text">kg</span>
                   </div>
                   <div class="container-fluid mt-2 text-right">
-                    <button class="btn btn-danger" type="reset" id="bmr-metric-reset">Reset</button>
-                    <button class="btn btn-success" id="bmr-metric-calc">Calculate</button>
+                    <button class="btn btn-danger" type="reset" id="bodyfat-m-reset">Reset</button>
+                    <button class="btn btn-success" id="bodyfat-m-calc">Calculate</button>
                   </div>
-                </div>
-                <div class="input-group mt-2">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">BMI</span>
-                  </div>
-                  <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="bmr-metric-result"
-                    disabled>
                 </div>
               </form>
 
-              <!-- BMR IMPERIAL -->
-              <form id="bmr-imperial" class="d-none">
+              <!-- Bodyfat IMPERIAL -->
+
+              <form id="bodyfat-i" class="d-none">
                 <div class="input-group mt-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">Age</span>
                   </div>
-                  <input type="number" class="form-control" id="bmr-imperial-age" required>
+                  <input type="number" class="form-control" id="bodyfat-i-age" required>
                 </div>
                 <div class="btn-group btn-group-toggle mt-2" data-toggle="buttons">
                   <label class="btn btn-outline-success btn-sm active">
-                    <input type="radio" name="options" id="bmr-imperial-male" autocomplete="off" checked> Male
+                    <input type="radio" name="options" id="bodyfat-i-male" autocomplete="off" checked> Male
                   </label>
                   <label class="btn btn-outline-success btn-sm">
-                    <input type="radio" name="options" id="bmr-imperial-female" autocomplete="off"> Female
+                    <input type="radio" name="options" id="bodyfat-i-female" autocomplete="off"> Female
                   </label>
                 </div>
                 <div class="input-group mt-2">
                   <div class="input-group-prepend">
                     <span class="input-group-text">Height</span>
                   </div>
-                  <input type="number" class="form-control" id="bmr-imperial-height-ft" required>
+                  <input type="number" class="form-control" id="bodyfat-i-height-ft" required>
                   <div class="input-group-append">
                     <span class="input-group-text">feet</span>
                   </div>
-                  <input type="number" class="form-control" id="bmr-imperial-height-in" required>
+                  <input type="number" class="form-control" id="bodyfat-i-height-in" required>
+                  <div class="input-group-append">
+                    <span class="input-group-text">inches</span>
+                  </div>
+                </div>
+                <div class="input-group mt-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Waist</span>
+                  </div>
+                  <input type="number" class="form-control" id="bodyfat-i-waist-ft" required>
+                  <div class="input-group-append">
+                    <span class="input-group-text">feet</span>
+                  </div>
+                  <input type="number" class="form-control" id="bmi-imperial-waist-in" required>
+                  <div class="input-group-append">
+                    <span class="input-group-text">inches</span>
+                  </div>
+                </div>
+                <div class="input-group mt-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Hip</span>
+                  </div>
+                  <input type="number" class="form-control" id="bodyfat-i-hip-ft" required>
+                  <div class="input-group-append">
+                    <span class="input-group-text">feet</span>
+                  </div>
+                  <input type="number" class="form-control" id="bodyfat-i-hip-in" required>
+                  <div class="input-group-append">
+                    <span class="input-group-text">inches</span>
+                  </div>
+                </div>
+                <div class="input-group mt-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Neck</span>
+                  </div>
+                  <input type="number" class="form-control" id="bodyfat-i-neck-ft" required>
+                  <div class="input-group-append">
+                    <span class="input-group-text">feet</span>
+                  </div>
+                  <input type="number" class="form-control" id="bodyfat-i-neck-in" required>
                   <div class="input-group-append">
                     <span class="input-group-text">inches</span>
                   </div>
@@ -518,26 +566,96 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">Weight</span>
                   </div>
-                  <input type="number" class="form-control" id="bmr-imperial-weight" required>
+                  <input type="number" class="form-control" id="bodyfat-i-weight" required>
                   <div class="input-group-append">
                     <span class="input-group-text">lb</span>
                   </div>
                   <div class="container-fluid mt-2 text-right">
-                    <button class="btn btn-danger" type="reset" id="bmr-imperial-reset">Reset</button>
-                    <button class="btn btn-success" id="bmr-imperial-calc">Calculate</button>
+                    <button class="btn btn-danger" type="reset" id="bodyfat-i-reset">Reset</button>
+                    <button class="btn btn-success" id="bodyfat-i-calc">Calculate</button>
                   </div>
-                </div>
-                <div class="input-group mt-2">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">BMI</span>
-                  </div>
-                  <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="bmr-imperial-result">
                 </div>
               </form>
+              </div>
+
+              <div class="resume-date col-md-6 col-xs-12 pt-2" id="bodyfat-results">
+                <h4 class="text-primary">Ideal weight chart</h4>
+
+                <table class="table table-hover" align="center">
+                  <tbody>
+                    <tr>
+                      <th class="cinfoHd">Category</th>
+                      <th class="">BMI range - kg/m
+                        <sup>2</sup>
+                      </th>
+                    </tr>
+                    <tr id="bmi-1">
+                      <td>
+                        <span class="bmi-underweight" data-toggle="tooltip" data-placement="top" title="A lean BMI can indicate that your weight maybe too low. You should consult your physician to determine if you should gain weight, as low body mass can decrease your body's immune system, which could lead to illness.">
+                          Severe Thinness
+                        </span>
+                      </td>
+                      <td>&lt; 16</td>
+                    </tr>
+                    <tr id="bmi-2">
+                      <td>
+                        <span class="bmi-underweight" data-toggle="tooltip" data-placement="top" title="A lean BMI can indicate that your weight maybe too low. You should consult your physician to determine if you should gain weight, as low body mass can decrease your body's immune system, which could lead to illness.">
+                          Moderate Thinness
+                        </span>
+                      </td>
+                      <td>16 - 17</td>
+                    </tr>
+                    <tr id="bmi-3">
+                      <td>
+                        <span class="bmi-underweight" data-toggle="tooltip" data-placement="top" title="A lean BMI can indicate that your weight maybe too low. You should consult your physician to determine if you should gain weight, as low body mass can decrease your body's immune system, which could lead to illness.">
+                          Mild Thinness
+                        </span>
+                      </td>
+                      <td>17 - 18.5</td>
+                    </tr>
+                    <tr id="bmi-4">
+                      <td>
+                        <span class="bmi-normal" data-toggle="tooltip" data-placement="top" title="People whose BMI is within 18.5 to 24.9 possess the ideal amount of body weight, associated with living longest, the lowest incidence of serious illness, as well as being perceived as more physically attractive than people with BMI in higher or lower ranges.">
+                          Normal
+                        </span>
+                      </td>
+                      <td>18.5 - 25</td>
+                    </tr>
+                    <tr id="bmi-5">
+                      <td>
+                        <span class="bmi-overweight" data-toggle="tooltip" data-placement="top" title="People falling in this BMI range are considered overweight and would benefit from finding healthy ways to lower their weight, such as diet and exercise. Individuals who fall in this range are at increased risk for a variety of illnesses.">
+                          Overweight
+                        </span>
+                      </td>
+                      <td>25 - 30</td>
+                    </tr>
+                    <tr id="bmi-6">
+                      <td>
+                        <span class="bmi-obese" data-toggle="tooltip" data-placement="top" title="Individuals with a BMI over 30 are in a physically unhealthy condition, which puts them at risk for serious illnesses such as heart disease, diabetes, high blood pressure, gall bladder disease, and some cancers. These people would benefit greatly by modifying their lifestyle.">
+                          Overweight
+                        </span>Obese Class I</td>
+                      <td>30 - 35</td>
+                    </tr>
+                    <tr id="bmi-7">
+                      <td>
+                        <span class="bmi-obese" data-toggle="tooltip" data-placement="top" title="Individuals with a BMI over 30 are in a physically unhealthy condition, which puts them at risk for serious illnesses such as heart disease, diabetes, high blood pressure, gall bladder disease, and some cancers. These people would benefit greatly by modifying their lifestyle.">
+                          Overweight
+                        </span>Obese Class II</td>
+                      <td>35 - 40</td>
+                    </tr>
+                    <tr id="bmi-8">
+                      <td>
+                        <span class="bmi-obese" data-toggle="tooltip" data-placement="top" title="Individuals with a BMI over 30 are in a physically unhealthy condition, which puts them at risk for serious illnesses such as heart disease, diabetes, high blood pressure, gall bladder disease, and some cancers. These people would benefit greatly by modifying their lifestyle.">
+                          Overweight
+                        </span>Obese Class III</td>
+                      <td>&gt; 40</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
-      </div>
     </section>
 
     <!-- SEMAOHORE -->
@@ -658,53 +776,13 @@
 
     <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="interests">
       <div class="my-auto">
-        <h2 class="mb-5">Interests</h2>
-        <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid skiier and
-          novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking.</p>
-        <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring
-          chef, and I spend a large amount of my free time exploring the latest technolgy advancements in the front-end web
-          development world.
-        </p>
+
       </div>
     </section>
 
     <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="awards">
       <div class="my-auto">
-        <h2 class="mb-5">Awards &amp; Certifications</h2>
-        <ul class="fa-ul mb-0">
-          <li>
-            <i class="fa-li fa fa-trophy text-warning"></i>
-            Google Analytics Certified Developer</li>
-          <li>
-            <i class="fa-li fa fa-trophy text-warning"></i>
-            Mobile Web Specialist - Google Certification</li>
-          <li>
-            <i class="fa-li fa fa-trophy text-warning"></i>
-            1
-            <sup>st</sup>
-            Place - University of Colorado Boulder - Emerging Tech Competition 2009</li>
-          <li>
-            <i class="fa-li fa fa-trophy text-warning"></i>
-            1
-            <sup>st</sup>
-            Place - University of Colorado Boulder - Adobe Creative Jam 2008 (UI Design Category)</li>
-          <li>
-            <i class="fa-li fa fa-trophy text-warning"></i>
-            2
-            <sup>nd</sup>
-            Place - University of Colorado Boulder - Emerging Tech Competition 2008</li>
-          <li>
-            <li>
-              <i class="fa-li fa fa-trophy text-warning"></i>
-              1
-              <sup>st</sup>
-              Place - James Buchanan High School - Hackathon 2006</li>
-            <li>
-              <i class="fa-li fa fa-trophy text-warning"></i>
-              3
-              <sup>rd</sup>
-              Place - James Buchanan High School - Hackathon 2005</li>
-        </ul>
+
       </div>
     </section>
 
