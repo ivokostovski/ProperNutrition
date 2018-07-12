@@ -1,0 +1,30 @@
+{
+  "name": "propernutrition",
+  "version": "1.0.0",
+  "description": "personal front-end project",
+  "main": "index.js",
+  "dependencies": {
+    "popper.js": "^1.14.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivokostovski/ProperNutrition.git"
+  },
+  "keywords": [
+    "proper",
+    "nutrition",
+    "project",
+    "sedc",
+    "frontend"
+  ],
+  "author": "Ivo Kostovski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ivokostovski/ProperNutrition/issues"
+  },
+  "homepage": "https://github.com/ivokostovski/ProperNutrition#readme"
+}

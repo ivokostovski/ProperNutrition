@@ -5,8 +5,8 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="description" content="Website with calculators for proper nutrition and Body Mass Index">
+  <meta name="author" content="Ivo Kostovski">
 
   <title>Proper Nutrition</title>
 
@@ -41,19 +41,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#about">Home</a>
+          <a class="nav-link js-scroll-trigger" href="#home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#experience">Your Profile</a>
+          <a class="nav-link js-scroll-trigger" href="#profile">Your Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#education">Body Fat Calculator</a>
+          <a class="nav-link js-scroll-trigger" href="#bfc">Body Fat Calculator</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#skills">Nutrition Label Semaphore</a>
+          <a class="nav-link js-scroll-trigger" href="#semaphore">Nutrilight</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#interests">About</a>
+          <a class="nav-link js-scroll-trigger" href="#about">About</a>
         </li>
       </ul>
     </div>
@@ -61,12 +61,12 @@
 
   <div class="container-fluid p-0">
 
-    <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
+    <section class="resume-section p-3 p-lg-5 d-flex d-column" id="home">
       <div class="my-auto">
         <h1 class="mb-0">Proper
           <span class="text-primary">Nutrition</span>
         </h1>
-        <div class="subheading mb-5">Your Profile · Nutrition Label Semaphore · Body Fat Calculator</div>
+        <div class="subheading mb-5">Your Profile · Nutrilight · Body Fat Calculator</div>
         <p class="mb-5">Why nutrition is important. Eating a balanced diet is vital for good health and wellbeing. Food provides our bodies
           with the energy, protein, essential fats, vitamins and minerals to live, grow and function properly.</p>
         <ul class="list-inline list-social-icons mb-0">
@@ -87,7 +87,7 @@
             </a>
           </li>
           <li class="list-inline-item">
-            <a href="#">
+            <a href="mailto:ivokostovski@gmail.com">
               <span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
@@ -99,7 +99,7 @@
     </section>
 
     <!-- BMI CALCULATOR -->
-    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
+    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="profile">
       <div class="my-auto">
         <h2 class="mb-4">Your profile</h2>
 
@@ -185,7 +185,7 @@
                       disabled>
                   </div>
                   <div class="col-4 mt-2 text-center">
-                    <button type="button" class="btn btn-primary" id="btn-calorie-table" data-target="#calorie-table" data-toggle="modal">See more</button>
+                    <button type="button" class="btn btn-outline-success" id="btn-calorie-table" data-target="#calorie-table" data-toggle="modal">See more</button>
                   </div>
                 </div>
               </form>
@@ -260,7 +260,7 @@
                       disabled>
                   </div>
                   <div class="col-4 mt-2 text-center">
-                    <button type="button" class="btn btn-primary" data-target="#calorie-table" data-toggle="modal">See more</button>
+                    <button type="button" class="btn btn-outline-success" data-target="#calorie-table" data-toggle="modal">See more</button>
                   </div>
                 </div>
               </form>
@@ -408,13 +408,13 @@
     </div>
 
     <!-- Body fat Slide -->
-    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="education">
+    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="bfc">
       <div class="my-auto">
         <h2 class="mb-4">Body Fat Calculator</h2>
         <div class="resume-item d-flex flex-column mb-5">
           <div class="row">
             <div class="resume-content col-md-6 col-xs-12">
-              <div class="text-muted mb-2">test</div>
+              <div class="text-muted mb-2">The Body Fat Calculator can be used to estimate your total body fat based on specific measurements.</div>
               <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <div class="btn-group btn-group-toggle mt-2" data-toggle="buttons">
                   <label class="btn btn-secondary active">
@@ -444,9 +444,9 @@
                 </div>
                 <div class="input-group mt-2">
                   <div class="input-group-prepend">
-                    <span class="input-group-text">Height</span>
+                    <span class="input-group-text">Wrist</span>
                   </div>
-                  <input type="number" class="form-control" id="bodyfat-m-height" required>
+                  <input type="number" class="form-control" id="bodyfat-m-wrist" required>
                   <div class="input-group-append">
                     <span class="input-group-text">cm</span>
                   </div>
@@ -471,9 +471,9 @@
                 </div>
                 <div class="input-group mt-2">
                   <div class="input-group-prepend">
-                    <span class="input-group-text">Neck</span>
+                    <span class="input-group-text">Forearm</span>
                   </div>
-                  <input type="number" class="form-control" id="bodyfat-m-neck" required>
+                  <input type="number" class="form-control" id="bodyfat-m-forearm" required>
                   <div class="input-group-append">
                     <span class="input-group-text">cm</span>
                   </div>
@@ -512,13 +512,13 @@
                 </div>
                 <div class="input-group mt-2">
                   <div class="input-group-prepend">
-                    <span class="input-group-text">Height</span>
+                    <span class="input-group-text">Wrist</span>
                   </div>
-                  <input type="number" class="form-control" id="bodyfat-i-height-ft" required>
+                  <input type="number" class="form-control" id="bodyfat-i-wrist-ft" required>
                   <div class="input-group-append">
                     <span class="input-group-text">feet</span>
                   </div>
-                  <input type="number" class="form-control" id="bodyfat-i-height-in" required>
+                  <input type="number" class="form-control" id="bodyfat-i-wrist-in" required>
                   <div class="input-group-append">
                     <span class="input-group-text">inches</span>
                   </div>
@@ -551,13 +551,13 @@
                 </div>
                 <div class="input-group mt-2">
                   <div class="input-group-prepend">
-                    <span class="input-group-text">Neck</span>
+                    <span class="input-group-text">Forearm</span>
                   </div>
-                  <input type="number" class="form-control" id="bodyfat-i-neck-ft" required>
+                  <input type="number" class="form-control" id="bodyfat-i-forearm-ft" required>
                   <div class="input-group-append">
                     <span class="input-group-text">feet</span>
                   </div>
-                  <input type="number" class="form-control" id="bodyfat-i-neck-in" required>
+                  <input type="number" class="form-control" id="bodyfat-i-forearm-in" required>
                   <div class="input-group-append">
                     <span class="input-group-text">inches</span>
                   </div>
@@ -579,76 +579,61 @@
               </div>
 
               <div class="resume-date col-md-6 col-xs-12 pt-2" id="bodyfat-results">
-                <h4 class="text-primary">Ideal weight chart</h4>
+                <h4 class="text-primary">Body fat</h4>
 
                 <table class="table table-hover" align="center">
                   <tbody>
                     <tr>
                       <th class="cinfoHd">Category</th>
-                      <th class="">BMI range - kg/m
-                        <sup>2</sup>
+                      <th>% / kg
                       </th>
                     </tr>
-                    <tr id="bmi-1">
+                    <tr>
                       <td>
-                        <span class="bmi-underweight" data-toggle="tooltip" data-placement="top" title="A lean BMI can indicate that your weight maybe too low. You should consult your physician to determine if you should gain weight, as low body mass can decrease your body's immune system, which could lead to illness.">
-                          Severe Thinness
+                        <span class="bmi-underweight" data-toggle="tooltip" data-placement="top" title="">
+                          Body Fat
                         </span>
                       </td>
-                      <td>&lt; 16</td>
+                      <td id="bf-result-percentage"></td>
                     </tr>
-                    <tr id="bmi-2">
+                    <tr>
                       <td>
-                        <span class="bmi-underweight" data-toggle="tooltip" data-placement="top" title="A lean BMI can indicate that your weight maybe too low. You should consult your physician to determine if you should gain weight, as low body mass can decrease your body's immune system, which could lead to illness.">
-                          Moderate Thinness
+                        <span class="bmi-underweight" data-toggle="tooltip" data-placement="top" title="">
+                          Body Fat Category
                         </span>
                       </td>
-                      <td>16 - 17</td>
+                      <td id="bf-result-category"></td>
                     </tr>
-                    <tr id="bmi-3">
+                    <tr>
                       <td>
-                        <span class="bmi-underweight" data-toggle="tooltip" data-placement="top" title="A lean BMI can indicate that your weight maybe too low. You should consult your physician to determine if you should gain weight, as low body mass can decrease your body's immune system, which could lead to illness.">
-                          Mild Thinness
+                        <span class="bmi-underweight" data-toggle="tooltip" data-placement="top" title="">
+                          Body Fat Mass
                         </span>
                       </td>
-                      <td>17 - 18.5</td>
+                      <td id="bf-result-bf-mass"></td>
                     </tr>
-                    <tr id="bmi-4">
+                    <tr>
                       <td>
-                        <span class="bmi-normal" data-toggle="tooltip" data-placement="top" title="People whose BMI is within 18.5 to 24.9 possess the ideal amount of body weight, associated with living longest, the lowest incidence of serious illness, as well as being perceived as more physically attractive than people with BMI in higher or lower ranges.">
-                          Normal
+                        <span class="bmi-normal" data-toggle="tooltip" data-placement="top" title="">
+                          Lean Body Mass
                         </span>
                       </td>
-                      <td>18.5 - 25</td>
+                      <td id="bf-result-lean-mass"></td>
                     </tr>
-                    <tr id="bmi-5">
+                    <tr>
                       <td>
-                        <span class="bmi-overweight" data-toggle="tooltip" data-placement="top" title="People falling in this BMI range are considered overweight and would benefit from finding healthy ways to lower their weight, such as diet and exercise. Individuals who fall in this range are at increased risk for a variety of illnesses.">
-                          Overweight
+                        <span class="bmi-overweight" data-toggle="tooltip" data-placement="top" title="">
+                          Ideal Body Fat for Given Age
                         </span>
                       </td>
-                      <td>25 - 30</td>
+                      <td id="bf-result-ideal-bf"></td>
                     </tr>
-                    <tr id="bmi-6">
+                    <tr>
                       <td>
-                        <span class="bmi-obese" data-toggle="tooltip" data-placement="top" title="Individuals with a BMI over 30 are in a physically unhealthy condition, which puts them at risk for serious illnesses such as heart disease, diabetes, high blood pressure, gall bladder disease, and some cancers. These people would benefit greatly by modifying their lifestyle.">
-                          Overweight
-                        </span>Obese Class I</td>
-                      <td>30 - 35</td>
-                    </tr>
-                    <tr id="bmi-7">
-                      <td>
-                        <span class="bmi-obese" data-toggle="tooltip" data-placement="top" title="Individuals with a BMI over 30 are in a physically unhealthy condition, which puts them at risk for serious illnesses such as heart disease, diabetes, high blood pressure, gall bladder disease, and some cancers. These people would benefit greatly by modifying their lifestyle.">
-                          Overweight
-                        </span>Obese Class II</td>
-                      <td>35 - 40</td>
-                    </tr>
-                    <tr id="bmi-8">
-                      <td>
-                        <span class="bmi-obese" data-toggle="tooltip" data-placement="top" title="Individuals with a BMI over 30 are in a physically unhealthy condition, which puts them at risk for serious illnesses such as heart disease, diabetes, high blood pressure, gall bladder disease, and some cancers. These people would benefit greatly by modifying their lifestyle.">
-                          Overweight
-                        </span>Obese Class III</td>
-                      <td>&gt; 40</td>
+                        <span class="bmi-obese" data-toggle="tooltip" data-placement="top" title="">
+                          Body Fat to Lose to Reach Ideal
+                        </span></td>
+                      <td id="bf-result-to-loose"></td>
                     </tr>
                   </tbody>
                 </table>
@@ -658,10 +643,10 @@
         </div>
     </section>
 
-    <!-- SEMAOHORE -->
-    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
+    <!-- SEMAPHORE -->
+    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="semaphore">
       <div class="my-auto col-md-7 col-xs-12">
-        <h2 class="mb-5">Semaphore</h2>
+        <h2 class="mb-5">Nutrilight</h2>
         <p>Enter the amount of fat, sugar and salt per
           <strong>100 g</strong> from a particular food or drink and the semaphore will show whether there is a large, medium or
           small amount of that ingredient in the product. Consume more products that have green and yellow lights, ratter
@@ -774,12 +759,15 @@
       </div>
     </section>
 
-    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="interests">
+    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="about">
       <div class="my-auto">
-
+            This site was developed by <b>Ivo Kostovski</b>.
+            <br><br>
+            See more on <a href="ivokostovski.com">ivokostovski.com</a>
       </div>
     </section>
 
+    <!-- Not needed, should be deleted -->
     <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="awards">
       <div class="my-auto">
 

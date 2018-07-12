@@ -1,5 +1,7 @@
 // *** BMI CALCULATOR ***
 
+//tooltips
+
 $('.bmi-underweight').tooltip();
 $('.bmi-normal').tooltip();
 $('.bmi-overweight').tooltip();
@@ -14,7 +16,7 @@ let bmiShowOneInputField = () => {
       $("#bmi-metric").removeClass("d-none"); //showes the metric input
       $("#bmi-imperial").toggleClass("d-none"); //hides the imperial input
     } else if (!$("#bmi-metric").hasClass("d-none")) {
-      //if metric input shown
+      //if metric input already shown
     } //do nothing
   });
 
@@ -24,7 +26,7 @@ let bmiShowOneInputField = () => {
       $("#bmi-imperial").removeClass("d-none"); //showes the Imperial input
       $("#bmi-metric").toggleClass("d-none"); //hides the Metric input
     } else if (!$("#bmi-imperial").hasClass("d-none")) {
-      //if Imperial input shown
+      //if Imperial input alredy shown
     } //do nothing
   });
 };
@@ -434,6 +436,208 @@ let bmiImperialCalculation = () => {
   sexChange();
 };
 
+
+// *** BODY FAT CALCULATOR
+
+let bfShowOneInputField = () => {
+  $("#radio-bodyfat-m").change(() => {
+    if ($("#bodyfat-m").hasClass("d-none")) {
+      //if metric input hidden
+      $("#bodyfat-m").removeClass("d-none"); //showes the metric input
+      $("#bodyfat-i").toggleClass("d-none"); //hides the imperial input
+    } else if (!$("#bodyfat-m").hasClass("d-none")) {
+      //if metric input already shown
+    } //do nothing
+  });
+
+  $("#radio-bodyfat-i").change(() => {
+    if ($("#bodyfat-i").hasClass("d-none")) {
+      //if Imperial input hidden
+      $("#bodyfat-i").removeClass("d-none"); //showes the Imperial input
+      $("#bodyfat-m").toggleClass("d-none"); //hides the Metric input
+    } else if (!$("#bodyfat-i").hasClass("d-none")) {
+      //if Imperial input alredy shown
+    } //do nothing
+  });
+};
+
+// BF Metric calc
+
+let bfMetricCalculation = () => {
+    let age, sex, wrist, waist, hip, forearm, weight, leanBodyMass, factor1, factor2, factor3, factor4, factor5, bodyFatWeight, bodyFatPercentage, bfCategory, idealBf, bfToLoose, goodToGo;
+
+    goodToGo = false;
+    sex = "male";
+
+    let bfMetricResult = () => {
+      if (sex === "male") {
+        factor1 = (weight * 1.082) + 94.42;
+        factor2 = waist * 4.15;
+        leanBodyMass = factor1 - factor2;
+        bodyFatWeight = weight - leanBodyMass;
+        bodyFatPercentage = (bodyFatWeight * 100) / weight;
+
+        //Body Fat category calculation for Male
+        if (bodyFatPercentage <= 5) {
+          bfCategory = "Essential Fat";
+        } else if (bodyFatPercentage >= 6 && bodyFatPercentage <= 13) {
+          bfCategory = "Athlete";
+        } else if (bodyFatPercentage >= 14 && bodyFatPercentage <= 17) {
+          bfCategory = "Fitness";
+        } else if (bodyFatPercentage >= 18 && bodyFatPercentage <= 25) {
+          bfCategory = "Acceptable";
+        } else if (bodyFatPercentage >= 26) {
+          bfCategory = "Obese";
+        } else {
+          //none left
+        }
+
+        //Ideal Body Fat Calculation
+        if (age <= 25) {
+          idealBf = 8.5;
+        } else if (age >= 26 && age <= 29 ) {
+          idealBf = 10.5
+        } else if (age >= 30 && age <= 34 ) {
+          idealBf = 12.7
+        } else if (age >= 35 && age <= 39 ) {
+          idealBf = 13.7
+        } else if (age >= 40 && age <= 44 ) {
+          idealBf = 15.3
+        } else if (age >= 45 && age <= 49 ) {
+          idealBf = 16.4
+        } else if (age >= 50 && age <= 54 ) {
+          idealBf = 18.9
+        } else if (age >= 55) {
+          idealBf = 20.9
+        } else {
+          //none left
+        }
+        
+        //Body fat to loose calculation
+        bfToLoose = bodyFatWeight - idealBf;
+        
+        if (bfToLoose <= 0) {
+          //do nothing, show the result
+        } else {
+          bfToLoose = "/";
+        };
+        
+
+      } else if (sex === "female") {
+        factor1 = (weight + 0.732) + 8.987;
+        factor2 = wrist / 3.140;
+        factor3 = waist * 0.157;
+        factor4 = hip * 0.249;
+        factor5 = forearm * 0.434;
+        leanBodyMass = factor1 + factor2 + factor3 + factor4;
+        bodyFatWeight = weight - leanBodyMass;
+        bodyFatPercentage = (bodyFatWeight * 100) / weight;
+        
+        //Body Fat category calculation for Female
+        if (bodyFatPercentage <= 13) {
+          bfCategory = "Essential Fat";
+        } else if (bodyFatPercentage >= 14 && bodyFatPercentage <= 20) {
+          bfCategory = "Athlete";
+        } else if (bodyFatPercentage >= 21 && bodyFatPercentage <= 24) {
+          bfCategory = "Fitness";
+        } else if (bodyFatPercentage >= 25 && bodyFatPercentage <= 31) {
+          bfCategory = "Acceptable";
+        } else if (bodyFatPercentage >= 32) {
+          bfCategory = "Obese";
+        } else {
+          //none left
+        }
+
+        //Ideal Body Fat Calculation
+        if (age <= 25) {
+          idealBf = 17.7;
+        } else if (age >= 26 && age <= 29 ) {
+          idealBf = 18.4
+        } else if (age >= 30 && age <= 34 ) {
+          idealBf = 19.3
+        } else if (age >= 35 && age <= 39 ) {
+          idealBf = 21.5
+        } else if (age >= 40 && age <= 44 ) {
+          idealBf = 22.2
+        } else if (age >= 45 && age <= 49 ) {
+          idealBf = 22.9
+        } else if (age >= 50 && age <= 54 ) {
+          idealBf = 25.2
+        } else if (age >= 55) {
+          idealBf = 26.3
+        } else {
+          //none left
+        }
+        
+        //Body fat to loose calculation
+        bfToLoose = bodyFatWeight - idealBf;
+        
+        if (bfToLoose <= 0) {
+          //do nothing, show the result
+        } else {
+          bfToLoose = "/";
+        };
+
+      } else {
+        //not possible
+      }
+    }
+
+  //Sex selector
+  let sexChange = () => {
+    $("#bodyfat-m-female").change(() => {
+      if ($("#bmi-metric-female:checked")) {
+        sex = "female";
+        console.log(sex)
+      } else {
+        sex = "male";
+        console.log(sex)
+      }
+    });
+    $("#bodyfat-m-male").change(() => {
+      if ($("#bmi-metric-male:checked")) {
+        sex = "male";
+        console.log(sex)
+      } else {
+        sex = "female";
+        console.log(sex)
+      }
+    });
+  };
+
+  let populateTable = () => {
+    $('#bf-result-percentage').html(bodyFatPercentage.toFixed(0));
+    $('#bf-result-category').html(bfCategory);
+    $('#bf-result-bf-mass').html(bodyFatWeight.toFixed(0));
+    $('#bf-result-lean-mass').html(leanBodyMass.toFixed(0));
+    $('#bf-result-ideal-bf').html(idealBf.toFixed(0));
+    $('#bf-result-to-loose').html(bfToLoose);
+  };
+
+  $("#bodyfat-m-calc").on("click", e => {
+    e.preventDefault();
+    age = $("#bodyfat-m-age").val();
+    wrist = $("#bodyfat-m-wrist").val();
+    waist = $("#bodyfat-m-waist").val();
+    hip = $("#bodyfat-m-hip").val();
+    forearm = $("#bodyfat-m-forearm").val();
+    weight = $("#bodyfat-m-weight").val();
+    bfMetricResult();
+    populateTable();
+    //validation();
+    //showResult();
+    //bmiSelector();
+  });
+
+  sexChange();
+}
+
+// BF Imperial calc
+
+let bfImperialCalculation = () => {
+
+}
+
 // *** SEMAPHORE ***
 
 // Selector
@@ -708,6 +912,11 @@ let semaphoreDrinksCalc = () => {
 bmiImperialCalculation();
 bmiMetricCalculation();
 bmiShowOneInputField();
+
+//Body Fat
+bfShowOneInputField();
+bfMetricCalculation();
+bfImperialCalculation();
 
 //Semaphore
 showOneInputFieldSemaphore();
